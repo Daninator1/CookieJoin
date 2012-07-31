@@ -1,0 +1,7 @@
+name: CookieJoin
+description: Get a cookie when you join!
+version: 1.1.1
+author: daninator1
+website:  http://www.bukkit.org/
+
+main: me.daninator1.cookiejoin.CookieJoin
