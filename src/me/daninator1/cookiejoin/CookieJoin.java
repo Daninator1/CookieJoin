@@ -1,13 +1,10 @@
 package me.daninator1.cookiejoin;
 
-import org.bukkit.event.Event;
-import org.bukkit.event.Event.Priority;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class CookieJoin extends JavaPlugin{
+public class CookieJoin extends JavaPlugin {
 	
-	private final CookieJoinPlayerListener playerListener = new CookieJoinPlayerListener(this);
+	public CookieJoinListener cookiejoinListener = new CookieJoinListener();
 
 	@Override
 	public void onDisable() {
@@ -19,11 +16,14 @@ public class CookieJoin extends JavaPlugin{
 	@Override
 	public void onEnable() {
 		
-		PluginManager pm = getServer().getPluginManager();
-		
-		pm.registerEvent(Event.Type.PLAYER_JOIN, this.playerListener, Priority.Normal, this);
-		
+		manageStuff();
 		System.out.println("CookieJoin successfully enabled!");
+		
+	}
+	
+	public void manageStuff() {
+		
+		getServer().getPluginManager().registerEvents(cookiejoinListener, this);
 		
 	}
 

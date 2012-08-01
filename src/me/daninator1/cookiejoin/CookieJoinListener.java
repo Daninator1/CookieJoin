@@ -2,17 +2,13 @@ package me.daninator1.cookiejoin;
 
 import org.bukkit.ChatColor;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerListener;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 
-public class CookieJoinPlayerListener extends PlayerListener {
-	
-	public static CookieJoin plugin;
-	
-	public CookieJoinPlayerListener(CookieJoin CookieJoin) {
-		plugin = CookieJoin;
-	}
-	
+public class CookieJoinListener implements Listener {
+
+	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		
 		event.getPlayer().getInventory().addItem(new ItemStack(357, 1));
